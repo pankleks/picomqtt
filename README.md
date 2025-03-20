@@ -1,13 +1,8 @@
 # PicoMqtt
 
-Kaluma library for MQTT on Raspberry Pico.
+Kaluma library for MQTT on Raspberry Pico W / Pico 2 W.
 
 This library is based on `https://www.espruino.com/modules/MQTT.js`, but stripped down to basic functionallity only.
-
-## Limitations
-
-- QoS = 0 only
-- Max. payload size 127 bytes
 
 ## How to use
 
@@ -38,3 +33,9 @@ mqtt.on("connected", () => {
 ```
 
 > See more in `example.js`
+
+## Limitations
+
+- QoS = 0 only
+- Max. payload size 127 bytes
+- Clear session is set
