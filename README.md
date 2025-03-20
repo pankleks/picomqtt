@@ -2,7 +2,7 @@
 
 Kaluma library for MQTT on Raspberry Pico W / Pico 2 W.
 
-This library is based on `https://www.espruino.com/modules/MQTT.js`, but stripped down to basic functionallity only.
+Based on `https://www.espruino.com/modules/MQTT.js` but refactored and stripped down to basic functionallity only (see limitations).
 
 ## How to use
 
