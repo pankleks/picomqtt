@@ -1,0 +1,20 @@
+{
+    "name": "picomqtt",
+    "version": "1.0.0",
+    "description": "Kaluma library for MQTT",
+    "main": "picomqtt.js",
+    "author": "Krzysztof Heim",
+    "license": "MQTT",
+    "keywords": [
+      "kaluma",
+      "mqtt"
+    ],
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/pankleks/picomqtt"
+    },
+    "bugs": {
+      "url": "https://github.com/pankleks/picomqtt"
+    },
+    "homepage": "https://github.com/pankleks/picomqtt"
+  }
