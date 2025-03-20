@@ -1,3 +1,8 @@
+/**
+ * MQTT for KalumaJS and Raspberry Pico W / Pico 2 W
+ * Krzysztof Heim 3/20/2025
+ * MIT License
+ */
 const
     net = require("net"),
     { EventEmitter } = require("events");
@@ -74,7 +79,7 @@ class PicoMQTT extends EventEmitter {
                     packetL = data[1],
                     topicL = (data[2] << 8) | data[3],
                     topic = td.decode(data.slice(4, 4 + topicL)),
-                    message = td.decode(data.slice(4 + topicL, 2 + packetL));                
+                    message = td.decode(data.slice(4 + topicL, 2 + packetL));
 
                 this.emit("message", { topic, message });
 
@@ -109,34 +114,36 @@ class PicoMQTT extends EventEmitter {
             this._reconnectT = setTimeout(this.connect.bind(this), this._reconnectS * 1000);
     }
 
+    heartbeat() {
+        if (this._tcpConnected)
+            try {
+                this._client.write(String.fromCharCode(PacketType.PINGREQ << 4, 0));
+            }
+            catch {
+                this.cleanup(true);
+            }
+    }
+
     connect() {
         try {
             this._client = net.createConnection({ host: this._url, port: this._port, }, () => {
                 this._tcpConnected = true; // tcp is connected
 
-                this._client.write(this.buildConnectPacket());                
+                this._client.write(this.buildConnectPacket());
 
-                this._heartbeatT = setInterval(() => {                    
-                    if (this._tcpConnected)
-                        try {
-                            this._client.write(String.fromCharCode(PacketType.PINGREQ << 4, 0));
-                        }
-                        catch {
-                            this.cleanup(true);
-                        }
-                }, (this._keepAliveS - 5) * 1000);                
+                this._heartbeatT = setInterval(this.heartbeat.bind(this), (this._keepAliveS - 5) * 1000);
             });
 
             this._client.on("data", this.handleData.bind(this));
             this._client.on("end", this.cleanup.bind(this, false));
             this._client.on("error", (ex) => {
                 this.emit("error", ex);
-                this.cleanup(true);                
+                this.cleanup(true);
             });
         }
-        catch (ex) {           
-            this.emit("error", ex);  
-            this.cleanup(true);                       
+        catch (ex) {
+            this.emit("error", ex);
+            this.cleanup(true);
         }
     }
 
