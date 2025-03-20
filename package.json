@@ -4,7 +4,7 @@
     "description": "Kaluma library for MQTT",
     "main": "picomqtt.js",
     "author": "Krzysztof Heim",
-    "license": "MQTT",
+    "license": "MIT",
     "keywords": [
       "kaluma",
       "mqtt",
