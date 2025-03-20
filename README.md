@@ -2,7 +2,7 @@
 
 Kaluma library for MQTT on Raspberry Pico.
 
-This library is based on `https://www.espruino.com/modules/MQTT.js`, but stripped down for code and memory size.
+This library is based on `https://www.espruino.com/modules/MQTT.js`, but stripped down to basic functionallity only.
 
 ## Limitations
 
@@ -14,7 +14,7 @@ This library is based on `https://www.espruino.com/modules/MQTT.js`, but strippe
 Import and create object:
 
 ```
-const { PicoMQTT } = require("./picomqtt.min");
+const { PicoMQTT } = require("picomqtt");
 ...
 const mqtt = new PicoMQTT("broker.hivemq.com", { clientId: board.uid });
 ```
