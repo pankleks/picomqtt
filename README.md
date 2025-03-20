@@ -13,19 +13,19 @@ This library is based on `https://www.espruino.com/modules/MQTT.js`, but strippe
 
 Import and create object:
 
-```
+```js
 const { PicoMQTT } = require("picomqtt");
 ...
 const mqtt = new PicoMQTT("broker.hivemq.com", { clientId: board.uid });
 ```
 
 Additional config parameters:
-```
+```js
 const mqtt = new PicoMQTT("broker.hivemq.com", { clientId: board.uid, user: "foo", password: "boo", port: 7883 });
 ```
 
 Operations:
-```
+```js
 mqtt.on("connected", () => {
   console.log("mqtt connected");
   
