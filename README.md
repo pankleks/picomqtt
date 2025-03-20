@@ -32,6 +32,10 @@ mqtt.on("connected", () => {
 
   mqtt.unsubscribe("test/topic");      
 });
+
+mqtt.on("message", (msg) => {
+  console.log(`mqtt message -> ${msg.topic}: ${msg.message}`);
+});
 ```
 
 > See more in `example.js`
