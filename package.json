@@ -2,7 +2,7 @@
     "name": "picomqtt",
     "version": "1.0.0",
     "description": "Kaluma library for MQTT",
-    "main": "picomqtt.js",
+    "main": "picomqtt.min.js",
     "author": "Krzysztof Heim",
     "license": "MIT",
     "keywords": [
