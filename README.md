@@ -16,7 +16,9 @@ const mqtt = new PicoMQTT("broker.hivemq.com", { clientId: board.uid });
 
 Additional config parameters:
 ```js
-const mqtt = new PicoMQTT("broker.hivemq.com", { clientId: board.uid, user: "foo", password: "boo", port: 7883 });
+const mqtt = new PicoMQTT(
+  "broker.hivemq.com",
+  { clientId: board.uid, user: "foo", password: "boo", port: 7883 });
 ```
 
 Operations:
