@@ -36,6 +36,8 @@ mqtt.on("connected", () => {
 mqtt.on("message", (msg) => {
   console.log(`mqtt message -> ${msg.topic}: ${msg.message}`);
 });
+
+mqtt.connect();
 ```
 
 > See more in `example.js`
